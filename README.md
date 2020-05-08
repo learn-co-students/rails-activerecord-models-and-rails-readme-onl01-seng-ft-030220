@@ -13,6 +13,7 @@ traditional way that we would query a database of 'posts' using SQL:
 ```sql
 SELECT * FROM posts
 ```
+#
 
 Compared with leveraging Active Record:
 
@@ -141,14 +142,14 @@ the `:posts` argument passed to the `create_table` method. The filename itself
 needs to be unique, and when you generate a migration automatically through a
 model or scaffold generator you will notice that the migration file name is
 prepended with a timestamp value to make sure that we can run migrations in the
-order they were written. 
+order they were written.
 
 The timestamp also plays a role in making sure that only new migrations run when
-we run `rake db:migrate`. The `db/schema.rb` file is updated with a version number 
-corresponding to the timestamp of the last migration you ran. When you run 
-`rake db:migrate` again, only migrations whose timestamps are greater than the 
-schema's version number will run. So, the numbers at the beginning of the filenames 
-of your migrations are required so ActiveRecord can be sure to run each of your 
+we run `rake db:migrate`. The `db/schema.rb` file is updated with a version number
+corresponding to the timestamp of the last migration you ran. When you run
+`rake db:migrate` again, only migrations whose timestamps are greater than the
+schema's version number will run. So, the numbers at the beginning of the filenames
+of your migrations are required so ActiveRecord can be sure to run each of your
 migrations just once and in the proper order.
 
 After running `rake db:migrate` we can see that our `db/schema.rb` file has been
